@@ -1,5 +1,14 @@
 from rest_framework import serializers
-from .models import Categoria, Autor, Livro
+from .models import Categoria, Autor, Livro, Colecao
+
+class ColecaoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Colecao
+        fields = ('id',
+                  'nome',
+                  'descricao',
+                  'livros',
+                  'colecionador')
 
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:

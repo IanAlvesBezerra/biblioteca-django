@@ -10,4 +10,6 @@ urlpatterns = [
     path('categorias/', views.CategoriaList.as_view(), name=views.CategoriaList.name),
     path('categorias/<int:pk>/', views.CategoriaDetail.as_view(), name=views.CategoriaDetail.name),
     path('', views.ApiRoot.as_view(), name=views.ApiRoot.name),
+    path('colecoes/', views.ColecaoList.as_view(), name=views.ColecaoList.name),
+    path('colecoes/<int:pk>/', views.ColecaoDetail.as_view(), name=views.ColecaoDetail.name),
 ]

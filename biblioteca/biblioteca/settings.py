@@ -43,11 +43,19 @@ INSTALLED_APPS = [
     "django_filters",
     # Core application
     'core.apps.CoreConfig',
+    # Token authentication
+    "rest_framework.authtoken",
+    # OpenAPI
+    "drf_spectacular",
+    # Django Cors Headers
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # Django Cors Headers
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -136,4 +144,21 @@ REST_FRAMEWORK = {
         "rest_framework.filters.OrderingFilter",
         "rest_framework.filters.SearchFilter",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+SPECTACULAR_SETTINGS = {
+	"TITLE": "RESTIC Back-end API",
+	"DESCRIPTION": "Your project description",
+	"VERSION": "1.0.0",
+	"SERVE INCLUDE SCHEMA": False,
+	# OTHER SETTINGS
+}
+
+CORS_ALLOWED_ORIGINS = [
+    "http://192.168.1.100",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "http://192.168.1.100",
+]
+CORS_ALLOW_CREDENTIALS = True
